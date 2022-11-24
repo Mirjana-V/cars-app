@@ -14,6 +14,9 @@ function App() {
             <li>
               <Link to="/add">Add</Link>
             </li>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
           </ul>
         </nav>
       <Router />

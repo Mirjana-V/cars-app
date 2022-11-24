@@ -61,9 +61,9 @@ export default function CreateCarForm({ newCar, setNewCar, onCreateNewCar, onRes
       <input
         required
         type="number"
-        id="numberOfDoors"
-        value={newCar.numberOfDoors}
-        onChange={({ target }) => setNewCar({ ...newCar, numberOfDoors: target.value })}
+        id="number_of_doors"
+        value={newCar.number_of_doors}
+        onChange={({ target }) => setNewCar({ ...newCar, number_of_doors: target.value })}
       />
       <br />
       <br />

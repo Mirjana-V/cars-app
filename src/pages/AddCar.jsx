@@ -13,16 +13,21 @@ export default function AddCar() {
       model: "",
       year: "",
       maxSpeed: "",
-      numberOfDoors: "",
+      number_of_doors: "",
       isAutomatic: false,
       engine: "",
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    //console.log(id)
+
     if (id) {
+      console.log('edit')
       await CarServices.edit(id, newCar)
     } else {
+      //console.log('add')
+
       await CarServices.add(newCar);
     }
     history.push('/cars');
@@ -34,7 +39,7 @@ export default function AddCar() {
       model: "",
       year: "",
       maxSpeed: "",
-      numberOfDoors: "",
+      number_of_doors: "",
       isAutomatic: false,
       engine: "",
     })
@@ -42,13 +47,13 @@ export default function AddCar() {
 
   const handlePrewiev=()=>{
     alert(`
-      Brand: ${newCar.brand} 
-      Model: ${newCar.model} 
-      Year: ${newCar.year} 
-      Max speed: ${newCar.maxSpeed} 
-      Number of doors: ${newCar.numberOfDoors} 
-      Is Automatic: ${newCar.isAutomatic ? 'Yes' : 'No'} 
-      Engine: ${newCar.engine}`
+      brand: ${newCar.brand} 
+      model: ${newCar.model} 
+      year: ${newCar.year} 
+      maxSpeed: ${newCar.maxSpeed} 
+      number_of_doors: ${newCar.number_of_doors} 
+      isAutomatic: ${newCar.isAutomatic ? 'Yes' : 'No'} 
+      engine: ${newCar.engine}`
     );
   }
 

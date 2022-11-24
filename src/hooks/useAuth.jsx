@@ -23,9 +23,9 @@ export function AuthProvider({ children }) {
     const token = handleGetItemFromLS("token");
 
     if (token) {
-      const { user } = await authService.refresh();
-      setUser(user);
-    }
+        const { user } = await authService.refresh();
+        setUser(user);
+      }
   };
 
   const handleGetItemFromLS = (value) => {

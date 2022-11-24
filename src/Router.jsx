@@ -10,6 +10,7 @@ import { Redirect } from 'react-router-dom';
 
 const AuthRoute = ({ children, ...rest }) => {
   const { user } = useAuth();
+  console.log({user})
   return <Route {...rest}> {user.name ? children : <Redirect to='/login' />}</Route>
 }
 const GuestRoute = ({ children, ...rest }) => {
@@ -26,12 +27,12 @@ export default function Router() {
     <Route path='/cars' exact>
         <AppCars />
     </Route>
-    <AuthRoute path='/add' exact>
+    <AuthRoute path='/add'>
         <AddCar />
     </AuthRoute>
-    <AuthRoute exact path='/edit/:id'>
+    {/* <AuthRoute exact path='/edit/:id'>
         <AddCar />
-    </AuthRoute>
+    </AuthRoute> */}
     <GuestRoute path='/login' exact>
         <Login />
     </GuestRoute>

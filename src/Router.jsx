@@ -6,11 +6,12 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import useAuth from './hooks/useAuth';
 import { Redirect } from 'react-router-dom';
+import SingleCar from './pages/SingleCar';
 
 
 const AuthRoute = ({ children, ...rest }) => {
   const { user } = useAuth();
-  console.log({user})
+  // console.log({user})
   return <Route {...rest}> {user.name ? children : <Redirect to='/login' />}</Route>
 }
 const GuestRoute = ({ children, ...rest }) => {
@@ -24,9 +25,12 @@ export default function Router() {
     <AuthRoute path='/' exact>
         <Redirect to='/cars'></Redirect>
     </AuthRoute>
-    <Route path='/cars' exact>
+    <AuthRoute path='/cars' exact>
         <AppCars />
-    </Route>
+    </AuthRoute>
+    <AuthRoute path='/cars/:id'>
+        <SingleCar />
+    </AuthRoute>
     <AuthRoute path='/add'>
         <AddCar />
     </AuthRoute>

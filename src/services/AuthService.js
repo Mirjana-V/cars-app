@@ -37,7 +37,7 @@ class AuthService {
             if (response.data) {
                 localStorage.setItem("token", response.data.authorization.token);
                 this.setAxiosAuthorizationHeader(response.data.authorization.token);
-                return response.data
+                return response.data;
             }
         } catch (error) {
             console.error(error);
@@ -48,7 +48,7 @@ class AuthService {
         let response = await this.axiosInstance.post("./logout");
         if (response.data){
             localStorage.removeItem("token");
-            return response.data
+            return response.data;
         }
     }
 

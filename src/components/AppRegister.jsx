@@ -31,21 +31,25 @@ export default function AppRegister({
             <form onSubmit={
                 passwordConfirmed ? handleOnRegister : handleUnmatchedPasswords
             }>
-                <label htmlFor="name">Name:</label>
+                <label htmlFor="name">Name: </label>
                 <input
                     required
                     type="text"
                     value={newUser.name}
                     onChange={({ target }) => setNewUser({ ...newUser, name: target.value })}
                 />
-                <label htmlFor="email">Email:</label>
+                <br />
+                <br />
+                <label htmlFor="email">Email: </label>
                 <input
                     required
                     type="email"
                     value={newUser.email}
                     onChange={({ target }) => setNewUser({ ...newUser, email: target.value })}
                 />
-                <label htmlFor="password">Password:</label>
+                <br />
+                <br />
+                <label htmlFor="password">Password: </label>
                 <input
                     required
                     type="password"
@@ -54,7 +58,9 @@ export default function AppRegister({
                         setNewUser({ ...newUser, password: target.value })
                     }
                 />
-                <label htmlFor="password">Confirm Password:</label>
+                <br />
+                <br />
+                <label htmlFor="password">Confirm Password: </label>
                 <input
                     required
                     type="password"
@@ -63,6 +69,8 @@ export default function AppRegister({
                         setConfirmPassword(target.value)
                     }
                 />
+                <br />
+                <br />
                 <button type="submit">Register</button>
             </form>
         </div>

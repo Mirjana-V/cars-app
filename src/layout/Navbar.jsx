@@ -24,6 +24,34 @@ const handleLogout = async () => {
           <li>
             <Link to="/login">Login</Link>
           </li>
+            )}
+        {!user.name && (
+          <li>
+            <Link to="/register">Register</Link>
+          </li>
+            )}
+          <li>
+            <Link to="/cars">Cars</Link>
+          </li>
+          <li>
+            <Link to="/add">Add</Link>
+          </li>
+        {user.name && <li>
+          <button onClick={handleLogout}>Logout</button>
+       </li>}
+      </ul>
+      <br />
+      <br />
+    </nav>
+  );
+}
+
+
+{/* <ul>
+        {!user.name && (
+          <li>
+            <Link to="/login">Login</Link>
+          </li>
         )}
         {!user.name && (
           <li>
@@ -39,7 +67,4 @@ const handleLogout = async () => {
             <li>
               <button onClick={handleLogout}>Logout</button>
             </li>
-      </ul>
-    </nav>
-  );
-}
+      </ul> */}

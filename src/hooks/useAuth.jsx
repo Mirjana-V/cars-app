@@ -1,6 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
-
 import { authService } from "../services/AuthService";
 
 const AuthContext = createContext(null);
@@ -15,9 +14,17 @@ export function AuthProvider({ children }) {
     history.push("/users");
   };
 
-  const handleLogout = () => {};
+  const handleLogout = async () => {
+    await authService.logout();
+    history.push("/login");
+  };
 
-  const handleRegister = () => {};
+  const handleRegister = async (data) => {
+    const response = await authService.register(data);
+      setUser(response.user);
+      console.log("Registration successful.");
+      history.push("/cars");
+  };
 
   const handleRefreshToken = async () => {
     const token = handleGetItemFromLS("token");
@@ -41,6 +48,8 @@ export function AuthProvider({ children }) {
       value={{
         user,
         login: handleLogin,
+        register: handleRegister,
+        logout: handleLogout
       }}
     >
       {children}

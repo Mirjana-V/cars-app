@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { useHistory } from "react-router-dom";
 import { authService } from "../services/AuthService";
+import { CarSearch}  from "../components/CarSearch";
 
 
 
@@ -39,6 +40,7 @@ const handleLogout = async () => {
         {user.name && <li>
           <button onClick={handleLogout}>Logout</button>
        </li>}
+       {user.name && <li><CarSearch /></li>}
       </ul>
       <br />
       <br />

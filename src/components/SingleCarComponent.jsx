@@ -5,8 +5,8 @@ export default function SingleCar({
   brand,
   model,
   year,
-  max_speed,
-  is_automatic,
+  maxSpeed,
+  isAutomatic,
   engine,
   number_of_doors,
 }) {
@@ -25,10 +25,10 @@ export default function SingleCar({
         Car year: <strong>{year}</strong>
       </p>
       <p>
-        Car max_speed: <strong>{max_speed}</strong>
+        Car maxSpeed: <strong>{maxSpeed}</strong>
       </p>
       <p>
-        Car is_automatic: <strong>{is_automatic}</strong>
+        Car isAutomatic: <strong>{isAutomatic}</strong>
       </p>
       <p>
         Car engine: <strong>{engine}</strong>

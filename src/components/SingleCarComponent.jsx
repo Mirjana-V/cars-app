@@ -1,4 +1,8 @@
 import React from "react";
+import { useDispatch } from "react-redux";
+import { setSelect } from "../store/cars/slice";
+import { useSelector } from "react-redux";
+import { selectSelect } from "../store/cars/selector";
 
 export default function SingleCar({
   id,
@@ -10,11 +14,17 @@ export default function SingleCar({
   engine,
   number_of_doors,
 }) {
-
-    
+  const dispatch = useDispatch();
+  const selectCar = useSelector(selectSelect);
+  console.log(selectCar.select.includes(id));
   return (
-    <div  key={id}>
-      <hr />
+    <div
+      key={id}
+      style={{
+        border:
+          "1px solid " + (selectCar.select.includes(id) ? "red" : "white"),
+      }}
+    >
       <p>
         Car brand: <strong>{brand}</strong>
       </p>
@@ -25,18 +35,18 @@ export default function SingleCar({
         Car year: <strong>{year}</strong>
       </p>
       <p>
-        Car maxSpeed: <strong>{maxSpeed}</strong>
+        Car max speed: <strong>{maxSpeed}</strong>
       </p>
       <p>
-        Car isAutomatic: <strong>{isAutomatic}</strong>
+        Car is automatic: <strong>{isAutomatic}</strong>
       </p>
       <p>
         Car engine: <strong>{engine}</strong>
       </p>
       <p>
-        Car number_of_doors: <strong>{number_of_doors}</strong>
+        Car number of doors: <strong>{number_of_doors}</strong>
       </p>
-      <hr />
+      <button onClick={() => dispatch(setSelect(id))}>Select</button>
     </div>
   );
 }
